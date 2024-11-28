@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>{{data.id ? 'Editar' : 'Novo'}} Produto</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" required>
+      <mat-error *ngIf="form.get('nome')?.hasError('required')">
+        Nome é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="descricao" required></textarea>
+      <mat-error *ngIf="form.get('descricao')?.hasError('required')">
+        Descrição é obrigatória
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Preço</mat-label>
+      <input matInput type="number" formControlName="preco" required>
+      <mat-error *ngIf="form.get('preco')?.hasError('required')">
+        Preço é obrigatório
+      </mat-error>
+      <mat-error *ngIf="form.get('preco')?.hasError('min')">
+        Preço deve ser maior que zero
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Quantidade em Estoque</mat-label>
+      <input matInput type="number" formControlName="quantidade" required>
+      <mat-error *ngIf="form.get('quantidadeEstoque')?.hasError('required')">
+        Quantidade em estoque é obrigatória
+      </mat-error>
+      <mat-error *ngIf="form.get('quantidadeEstoque')?.hasError('min')">
+        Quantidade em estoque deve ser maior que zero
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancel()">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+      Salvar
+    </button>
+  </mat-dialog-actions>
+</form>
