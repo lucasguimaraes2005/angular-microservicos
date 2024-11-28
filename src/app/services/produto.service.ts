@@ -7,7 +7,7 @@ import { Produto } from '../models/produto.model';
   providedIn: 'root'
 })
 export class ProdutoService {
-  private apiUrl = 'https://microservicoproduto-production.up.railway.app';
+  private apiUrl = 'https://microservicoproduto-production.up.railway.app/api/produtos';
 
   constructor(private http: HttpClient) { }
 
