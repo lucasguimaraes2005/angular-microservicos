@@ -7,7 +7,7 @@ import { Cliente } from '../models/cliente.model';
   providedIn: 'root'
 })
 export class ClienteService {
-  private apiUrl = 'https://microservi-ocliente-production.up.railway.app';
+  private apiUrl = 'https://microservi-ocliente-production.up.railway.app/api/clientes';
 
   constructor(private http: HttpClient) { }
 
